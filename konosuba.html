@@ -1,0 +1,65 @@
+<div id="sheet-container">
+    <input class="sheet-tab" type="hidden" name="attr_tab" value="character" />
+    <div id="sheet-tabs-container">
+        <button type="action" name="act_tab_character">Character</button>
+        <button type="action" name="act_tab_scores">Scores</button>
+        <button type="action" name="act_tab_skills">Skills</button>
+        <button type="action" name="act_tab_equipment">Equipment</button>
+        <button type="action" name="act_tab_config"><b>⚙</b></button>
+    </div>
+
+    <div class="sheet-page" id="sheet-page-character">
+        Character
+    </div>
+
+    <div class="sheet-page" id="sheet-page-scores">
+        Scores
+    </div>
+
+    <div class="sheet-page" id="sheet-page-skills">
+        Skills
+    </div>
+
+    <div class="sheet-page" id="sheet-page-equipment">
+        Equipment
+    </div>
+
+    <div class="sheet-page" id="sheet-page-config">
+        Config
+    </div>
+
+</div>
+<script type="text/worker">
+    const currentVersion = 0.1;
+    const tabs = ["character","scores","skills","equipment","config"];
+
+    function versioning(v){
+        switch(v){
+            default:
+            break;
+        }
+    };
+
+    function switchPage(value){
+        setAttrs({"tab": value});
+    }
+    
+    on("sheet:opened", function(){
+        getAttrs(["version"], function(values){
+            let ver = parseFloat(values["version"]);
+            if(ver != currentVersion){
+                versioning(ver);
+            }
+        });
+    });
+
+    
+
+    tabs.forEach(function(tab){
+        on("clicked:tab_" + tab, function(){
+            console.log(`Clicked tab ${tab}`);
+            switchPage(tab);
+        });
+    });
+    
+</script>

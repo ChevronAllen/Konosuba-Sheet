@@ -1,0 +1,47 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+textarea{
+    resize: vertical;
+}
+
+#sheet-container{
+    display: block;
+    width:100%;
+    min-width: 800px;
+
+}
+
+.sheet-page{
+    border-style: solid;
+    border-image:  url(https://i.imgur.com/oBYtf8B.png);
+    border-image-slice: 70;
+    border-image-width: 20;
+    border-image-repeat: round;
+    border-image-outset: 1;
+    background-color: #edddc0;
+    min-height: 500px;
+    margin-bottom: 1rem;
+    padding: 60px 40px;
+}
+
+#sheet-page-character,
+#sheet-page-scores,
+#sheet-page-skills,
+#sheet-page-equipment,
+#sheet-page-config{
+    display: none;
+}
+
+input.sheet-tab[value="character"] ~ #sheet-page-character,
+input.sheet-tab[value="scores"] ~ #sheet-page-scores,
+input.sheet-tab[value="skills"] ~ #sheet-page-skills,
+input.sheet-tab[value="equipment"] ~ #sheet-page-equipment,
+input.sheet-tab[value="config"] ~ #sheet-page-config{
+    display: block;
+}
