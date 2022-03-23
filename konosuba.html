@@ -9,10 +9,10 @@
     </div>
     
     <div class="sheet-page" id="sheet-page-character">
-        <div class="sheet-header">
+        <div>
                 <img src="" class="sheet-logo" />            
-                <input type="text" name="attr_character_name" placeholder="Character Name"/>
         </div>
+        <input type="text" name="attr_character_name" placeholder="Character Name"/>
         <input type="text" class="sheet-custom-font" name="attr_character_name" readonly/>
 
         
@@ -23,10 +23,41 @@
 
     <div class="sheet-page" id="sheet-page-scores">
         Scores
+        
     </div>
 
     <div class="sheet-page" id="sheet-page-skills">
         Skills
+        <div>
+            <fieldset class="repeating_skills">
+                <div class="sheet-skill-item">
+                    <button type="action" name="act_lock">⚙</button>
+                    <input type="hidden" class="sheet-lock"  name="attr_isLocked" value="0" />
+                    <div class="sheet-unlocked">                        
+                        <input type="text" name="attr_name" placeholder="Skill Name"/>
+                        <input type="text" name="attr_SL" placeholder="SL"/>
+                        <input type="text" name="attr_Timing" placeholder="Timing"/>
+                        <input type="text" name="attr_Check" placeholder="Check"/>
+                        <input type="text" name="attr_Target" placeholder="Target"/>
+                        <input type="text" name="attr_Range" placeholder="Range"/>
+                        <input type="text" name="attr_Cost" placeholder="Cost"/>
+                        <input type="text" name="attr_SL_max" placeholder="SL Limit"/>
+                        <textarea name="attr_effect" placeholder="Effect"></textarea>
+                    </div>
+                    <div class="sheet-locked">
+                        <input type="text" name="attr_name" placeholder="Skill Name" readonly/>
+                        <input type="text" name="attr_SL" placeholder="SL" readonly/>
+                        <input type="text" name="attr_Timing" placeholder="Timing" readonly/>
+                        <input type="text" name="attr_Check" placeholder="Check" readonly/>
+                        <input type="text" name="attr_Target" placeholder="Target" readonly/>
+                        <input type="text" name="attr_Range" placeholder="Range" readonly/>
+                        <input type="text" name="attr_Cost" placeholder="Cost" readonly/>
+                        <input type="text" name="attr_SL_max" placeholder="SL Limit" readonly/>
+                        <textarea name="attr_effect" placeholder="Effect" readonly></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
     </div>
 
     <div class="sheet-page" id="sheet-page-equipment">
@@ -68,6 +99,18 @@
         on("clicked:tab_" + tab, function(){
             console.log(`Clicked tab ${tab}`);
             switchPage(tab);
+        });
+    });
+
+    on("clicked:repeating_skills:lock", function(e){
+        let update = {};
+        getAttrs(["repeating_skills_isLocked"], function(values){
+            let temp = parseInt(values["repeating_skills_isLocked"]) || 0;
+            update["repeating_skills_isLocked"] = (temp + 1) % 2;
+
+            console.log(`Clicked Lock. Set to ${temp}`);
+
+            setAttrs(update);
         });
     });
     

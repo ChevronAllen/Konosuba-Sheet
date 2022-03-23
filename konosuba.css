@@ -17,6 +17,7 @@ input[type="number"] {
 }
 textarea{
     resize: vertical;
+    box-sizing: border-box;
 }
 
 /* Source: W3C Schools*/
@@ -85,7 +86,7 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
 
 #sheet-page-character > .sheet-header{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: nowrap;
     justify-content: flex;
     align-items: flex-end;
@@ -109,4 +110,12 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
 #sheet-page-character input[name="attr_character_name"]{
     width:100%;
     height: 4em;
+}
+.sheet-locked,
+.sheet-unlocked{
+    display: none;
+}
+.sheet-lock[value=1] ~ .sheet-locked,
+.sheet-lock[value=0] ~ .sheet-unlocked{
+    display: block;
 }
