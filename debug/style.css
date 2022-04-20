@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "KonosubaFont";
+  src: url("https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.woff") format("woff"), url("https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.ttf") format("truetype");
+}
+input {
+  border-width: 0 0 1px 0;
+  border-color: black;
+  font-weight: bold;
+  color: black;
+  border-radius: 0px;
+}
+input:read-write {
+  background-color: rgba(117, 75, 0, 0.3098039216);
+}
+input:read-only {
+  background-color: rgba(53, 53, 53, 0.3098039216);
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button[type=roll].sheet-d6-dice::before {
+  font-family: "dicefontd6";
+  content: "F ";
+}
+
+.sheet-container > input.sheet_tab[value=character] ~ #sheet-page-character {
+  display: grid;
+}
+.sheet-container > input.sheet_tab[value=skills] ~ #sheet-page-skills {
+  display: block;
+}
+.sheet-container > input.sheet_tab[value=equipment] ~ #sheet-page-equipment {
+  display: block;
+}
+
+.sheet-page {
+  padding: 1em;
+}
+
+.sheet-container > #sheet-page-character {
+  grid-template-columns: [first-col] 4fr [col-2] 1rem [col-3] 2fr [last-col];
+  grid-template-rows: [first-row] 2fr [row-2] 2fr [row-3] 1fr [last-row];
+}
+.sheet-container > #sheet-page-character > .sheet-header {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: flex;
+  align-items: flex-end;
+}
+.sheet-container > #sheet-page-character > .sheet-char {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.sheet-container > #sheet-page-character > .sheet-bio {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.sheet-container > #sheet-page-character > .sheet-bio > div {
+  border: 1px dashed black;
+  padding: 1rem;
+}
+.sheet-container > #sheet-page-character > .sheet-abilities {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+.sheet-container > #sheet-page-character img.sheet-logo {
+  height: 100px;
+  min-width: 300px;
+  max-width: 300px;
+  border: 1px solid black;
+}
+.sheet-container > #sheet-page-character input[name=attr_character_name] {
+  border-width: 0 0 1px 0;
+  border-color: black;
+  font-weight: bold;
+  color: black;
+  border-radius: 0px;
+}
+
+.sheet-avatar {
+  border: 1px solid black;
+  width: 200px;
+}
+
+.sheet-ability-item {
+  display: block;
+}
+.sheet-ability-item label {
+  display: inline-block;
+  max-width: 80px;
+  overflow-x: clip;
+}
+.sheet-ability-item input {
+  display: inline-block;
+  width: 4em;
+}
+
+/*# sourceMappingURL=style.css.map */

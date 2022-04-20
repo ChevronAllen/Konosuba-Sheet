@@ -1,0 +1,396 @@
+@font-face {
+    font-family: 'KonosubaFont';
+    src: url('https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.woff') format('woff'), /* Modern Browsers */
+         url('https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+button[type=roll].sheet-d6-dice::before {
+    font-family: 'dicefontd6';
+    content: 'F ';
+}
+
+.charsheet input::-webkit-outer-spin-button,
+.charsheet input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+.charsheet input{
+    border-width: 0 0 1px 0;
+    border-color: black;
+    font-weight: bold;
+    color: black;
+    border-radius: 0px;
+}
+.charsheet input:read-write{
+    background-color: #754b004f;
+}
+.charsheet input:read-only{
+    background-color: #3535354f;
+}
+.charsheet input[type="number"] {
+   -moz-appearance: textfield;
+}
+.sheet-custom-font{
+    font-family: KonosubaFont, Arial, Helvetica, sans-serif;
+}
+.charsheet textarea{
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+span.sheet-labeled-field{
+    display: inline-block;
+    position:relative;
+}
+span.sheet-labeled-field label{
+    position: absolute;
+    top: 0;
+    left:1em;
+    z-index: 1;
+    font-size: xx-small;
+    pointer-events: none; 
+    max-width: calc(100% - 1em);
+    overflow: hidden;
+    text-overflow: clip;
+}
+span.sheet-labeled-field input{
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0;
+    z-index: 0;
+    padding-top:1em;
+}
+span.sheet-labeled-field textarea{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: 0;
+    padding-top:1em;
+}
+span.sheet-labeled-field.sheet-short{
+    width:100px;
+}
+span.sheet-labeled-field.sheet-long{
+    width:250px;
+}
+
+span.sheet-ability-check{
+    position:relative;
+}
+span.sheet-ability-check input{
+    font-weight: bold;
+}
+span.sheet-ability-check button{
+    position: absolute;
+    top: -0.5em;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    z-index: 1;
+    height: 2em;
+    box-sizing: border-box;
+    border: none;
+}
+
+
+.sheet-checkbox-button{
+    min-width:30px;
+}
+.sheet-checkbox-button > img{
+    width: 100%;
+}
+.sheet-checkbox-button .sheet-checked,
+.sheet-checkbox-button .sheet-unchecked{
+    display: none;
+}
+.sheet-checkbox-button input:checked ~ .sheet-checked,
+.sheet-checkbox-button input:not(:checked) ~ .sheet-unchecked{
+    display: inline-block;
+    position:absolute;
+    top:0;
+    left:0;
+    pointer-events: none;    
+    z-index: 0;
+}
+.sheet-checkbox-button input{
+    position: relative;
+    opacity: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1;
+}
+
+/* Source: W3C Schools*/
+.sheet-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.sheet-tooltip::after{
+    content: "❔";
+}
+
+.sheet-tooltip .sheet-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.sheet-tooltip:hover .sheet-tooltiptext {
+    visibility: visible;
+}
+
+#sheet-container,
+.charsheet{
+    display: block;
+    width:100%;
+    min-width: 820px;
+}
+
+.sheet-float-right{
+    float:right;
+}
+
+.sheet-page{
+    border-style: solid;
+    border-image:  url(https://i.imgur.com/oBYtf8B.png);
+    border-image-slice: 70;
+    border-image-width: 20;
+    border-image-repeat: round;
+    border-image-outset: 1;
+    background-color: #edddc0;
+    min-height: 500px;
+    margin-bottom: 1rem;
+    padding: 60px 40px;
+}
+
+#sheet-page-character,
+#sheet-page-checks,
+#sheet-page-skills,
+#sheet-page-equipment,
+#sheet-page-config{
+    display: none;
+}
+
+input.sheet-tab[value="character"] ~ #sheet-page-character,
+input.sheet-tab[value="checks"] ~ #sheet-page-checks,
+input.sheet-tab[value="skills"] ~ #sheet-page-skills,
+input.sheet-tab[value="equipment"] ~ #sheet-page-equipment,
+input.sheet-tab[value="config"] ~ #sheet-page-config{
+    display: grid;
+}
+
+#sheet-page-character{
+    grid-template-columns: [first-col] 4fr [col-2] 1em [col-3] 2fr [last-col];
+    grid-template-rows: [first-row] auto [last-row];
+}
+#sheet-page-skills
+{
+    grid-template-columns: 100%;
+    grid-template-rows: 5rem auto;
+}
+#sheet-page-checks{
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+}
+
+#sheet-page-character > .sheet-header{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: flex;
+    align-items: flex-end;
+}
+
+#sheet-page-character .sheet-content{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#sheet-page-character .sheet-sidebar {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#sheet-page-character .sheet-sidebar > div{
+    border: 1px dashed black;
+    padding:1rem;
+}
+#sheet-page-character > .sheet-abilities{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+
+#sheet-page-character .sheet-char .sheet-char-name{
+    display: block;
+    width:300px;
+    height: 3em;
+    font-size: larger;
+}
+#sheet-page-character .sheet-char input{
+    font-size: larger;
+    padding-left:1em;
+}
+
+.sheet-avatar{
+    width: 200px;
+}
+.sheet-ability-item{
+    display: block;
+}
+.sheet-ability-item label{
+    display: inline-block;
+    max-width: 80px;
+    overflow-x: clip;
+}
+.sheet-ability-item input{
+    display: inline-block;
+    width: 4em;
+}
+
+#sheet-page-skills{
+    grid-template-columns: 100%;
+    grid-template-rows: 100px auto;
+}
+#sheet-page-skills > div.sheet-header{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#sheet-page-skills > div.sheet-content{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#sheet-page-skills .sheet-skill-item{
+    position:relative;
+    margin: 1px 2.5em 0 4.5em;
+    border: 1px solid black;
+}
+
+#sheet-page-skills .sheet-skill-item > input{
+    visibility: hidden;
+    position:absolute;
+    top:0;
+    left:-2em;
+}
+#sheet-page-skills .repcontainer:hover .sheet-skill-item > input{
+    visibility: visible;
+}
+
+.sheet-skill-item .sheet-header{
+    border: 1px solid black;
+}
+.sheet-skill-item .sheet-content{
+    border: 1px solid black;
+}
+.sheet-block{
+    display: block !important;
+    width:100% !important;
+}
+
+.sheet-equipment-item{
+    position:relative;
+    display: block;
+    margin: 1rem 0 0 40px;
+}
+.sheet-equipment-item label{
+    display: inline-block;
+    width: 100px;
+}
+.sheet-equipment-item input{
+    display: inline-block;
+    border-radius: 0;
+    border-color: black;
+}
+.sheet-equipment-item .sheet-header{
+    position: relative;
+}
+/* .sheet-equipment-item .sheet-labeled-field{
+    width: 100px;
+} */
+.sheet-equipment-item .sheet-labeled-field > input[type="number"]{
+    text-align: center;
+}
+.sheet-equipment-item .sheet-header .sheet-labeled-field.sheet-name{
+    width:300px;
+}
+.sheet-equipment-item .sheet-header .sheet-checkbox-button{
+    position: absolute;
+    top: 0em;
+    left: -2.5em;
+    height: 100%;
+    display: inline-block;
+    z-index: 1;
+}
+.sheet-equipment-item > .sheet-content{
+    display: none;
+}
+.sheet-equipment-item > input[value="checked"] ~ .sheet-content{
+    display: block;
+}
+
+/* .sheet-check-item > .sheet-grid{
+    display: inline grid;
+    grid-template-areas: "ability hit attack evasion physical magic action move skill other" ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sheet-grid > span.sheet-labeled-field.sheet-check-ability{
+    grid-area: "ability";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-hitmod{
+    grid-area: "hit";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-attack{
+    grid-area: "attack";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-evasion{
+    grid-area: "evasion";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-physical{
+    grid-area: "physical";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-magic{
+    grid-area: "magic";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-action{
+    grid-area: "action";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-move{
+    grid-area: "move";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-skill{
+    grid-area: "skill";
+}
+.sheet-grid > span.sheet-labeled-field.sheet-check-other{
+    grid-area: "other";
+} */
+
+
+
+.sheet-locked,
+.sheet-unlocked{
+    display: none;
+}
+.sheet-lock[value="0"] ~ .sheet-locked,
+.sheet-lock[value="checked"] ~ .sheet-unlocked{
+    display: block;
+}

@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'KonosubaFont';
+    src: url('https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.woff') format('woff'), /* Modern Browsers */
+         url('https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+input{
+    border-width: 0 0 1px 0;
+    border-color: black;
+    font-weight: bold;
+    color: black;
+    border-radius: 0px;
+
+    &:read-write{
+        background-color: #754b004f;
+    }
+    &:read-only{
+        background-color: #3535354f;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+     }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+} 
+
+button{
+    &[type=roll].sheet-d6-dice::before {
+        font-family: 'dicefontd6';
+        content: 'F ';
+    }
+}
+
+.sheet-container > {
+    input.sheet_tab{
+        &[value="character"] ~ #sheet-page-character{
+            display: grid;
+        }
+        &[value="skills"] ~ #sheet-page-skills{
+            display: block;
+        }
+        &[value="equipment"] ~ #sheet-page-equipment{
+            display: block;
+        }
+    }
+
+}
+.sheet-page{
+    padding: 1em;
+}
+.sheet-container > #sheet-page-character{
+    grid-template-columns: [first-col] 4fr [col-2] 1rem [col-3] 2fr [last-col];
+    grid-template-rows: [first-row] 2fr [row-2] 2fr [row-3] 1fr [last-row];
+
+    & > .sheet-header{
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        justify-content: flex;
+        align-items: flex-end;
+    }
+
+    & > .sheet-char{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    & > .sheet-bio {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 4;
+
+        & > div{
+            border: 1px dashed black;
+            padding:1rem;
+        }
+    }
+
+    & > .sheet-abilities{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+
+    img.sheet-logo{
+        height: 100px;
+        min-width: 300px;
+        max-width: 300px;
+        border:1px solid black;
+    }
+
+    input[name="attr_character_name"]{
+        border-width: 0 0 1px 0;
+        border-color: black;
+        font-weight: bold;
+        color: black;
+        border-radius: 0px;
+    }
+}
+
+.sheet-avatar{
+    border: 1px solid black;
+    width: 200px;
+}
+
+.sheet-ability-item{
+    display: block;
+
+    label{
+        display: inline-block;
+        max-width: 80px;
+        overflow-x: clip;
+    }
+
+    input{
+        display: inline-block;
+        width: 4em;
+    }
+}

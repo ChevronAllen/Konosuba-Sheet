@@ -1,0 +1,595 @@
+<div id="sheet-container">
+    <input class="sheet-tab" type="hidden" name="attr_tab" value="character" />
+    <div id="sheet-tabs-container">
+        <button type="action" data-i18n="tab_character" name="act_tab_character">Character</button>
+        <button type="action" data-i18n="tab_scores" name="act_tab_scores">Scores</button>
+        <button type="action" data-i18n="tab_skills" name="act_tab_skills">Skills</button>
+        <button type="action" data-i18n="tab_equipment" name="act_tab_equipment">Equipment</button>
+        <button type="action" class="sheet-float-right" name="act_tab_config"><b>⚙</b></button>
+    </div>
+    
+    <div class="sheet-page" id="sheet-page-character">
+        <div class="sheet-char">
+            <span class="sheet-labeled-field sheet-char-name">
+                <label data-i18n="name">Name</label>
+                <input type="text" name="attr_character_name"/>
+            </span>
+            <input type="text" class="sheet-custom-font" name="attr_character_name" readonly/>
+            <span class="sheet-labeled-field">
+                <label data-i18n="age">Age</label>
+                <input type="text" name="attr_character_age" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="gender">Gender</label>
+                <input type="text" name="attr_character_gender" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="experience_used">EXP Used</label>
+                <input type="text" name="attr_experience" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="experience_total">EXP Total</label>
+                <input type="text" name="attr_experience_max" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="race">Race</label>
+                <input type="text" name="attr_character_race" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="class">Class</label>
+                <input type="text" name="attr_character_class" />
+            </span>
+            <span class="sheet-labeled-field">
+                <label data-i18n="level">Level</label>
+                <input type="text" name="attr_character_level" />
+            </span>
+        </div>
+        
+        <div class="sheet-bio">
+            <!--img src="" class="sheet-logo" /-->            
+            
+            <div>
+                <img class="sheet-avatar" name="attr_character_avatar" />
+                <span class="sheet-labeled-field">
+                    <label data-i18n="appearance">Appearance</label>
+                    <textarea name="attr_character_appearance"></textarea>
+                </span>
+            </div>
+
+            <div>
+                <span class="sheet-labeled-field">
+                    <label data-i18n="hit_points">HP</label>
+                    <input type="number" name="attr_hp" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label data-i18n="magic_points">MP</label>
+                    <input type="number" name="attr_mp" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label data-i18n="blessings">Name</label>
+                    <input type="number" name="attr_blessings" />
+                </span>
+                <input type="number" name="attr_blessings_max" />
+            </div>
+
+            <div>
+                <label>Life Path</label>
+                <span class="sheet-labeled-field">
+                    <label>Origin</label>
+                    <input type="text" name="attr_character_origin" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Circumstance</label>
+                    <input type="text" name="attr_character_circumstance" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Objective</label>
+                    <input type="text" name="attr_character_objective" />
+                </span>
+            </div>
+
+            <div>
+                <label>Cheat</label>
+                <span class="sheet-labeled-field">
+                    <label>Cheat</label>
+                    <input type="text" name="attr_cheat_name" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Effect</label>                    
+                    <textarea name="attr_cheat_effect" ></textarea>
+                </span>
+            </div>
+        </div>
+
+        <div class="sheet-abilities">
+            
+            <div class="sheet-ability-item">
+                <label>Strength</label>
+                <input type="text" name="attr_strength" />
+                <input type="text" name="attr_strength_base" />
+                <input type="text" name="attr_strength_bonus" />
+                <input type="text" name="attr_strength_class" />
+                <input type="text" name="attr_strength_skills" />
+                <input type="text" name="attr_strength_score" />
+                <input type="text" name="attr_strength_other" />
+                <input type="text" name="attr_strength_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Dexterity</label>
+                <input type="text" name="attr_dexterity" />
+                <input type="text" name="attr_dexterity_base" />
+                <input type="text" name="attr_dexterity_bonus" />
+                <input type="text" name="attr_dexterity_class" />
+                <input type="text" name="attr_dexterity_skills" />
+                <input type="text" name="attr_dexterity_score" />
+                <input type="text" name="attr_dexterity_other" />
+                <input type="text" name="attr_dexterity_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Agility</label>
+                <input type="text" name="attr_agility_other" />
+                <input type="text" name="attr_agility_other_base" />
+                <input type="text" name="attr_agility_other_bonus" />
+                <input type="text" name="attr_agility_other_class" />
+                <input type="text" name="attr_agility_other_skills" />
+                <input type="text" name="attr_agility_other_score" />
+                <input type="text" name="attr_agility_other_other" />
+                <input type="text" name="attr_agility_other_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Intelligence</label>
+                <input type="text" name="attr_intelligence" />
+                <input type="text" name="attr_intelligence_base" />
+                <input type="text" name="attr_intelligence_bonus" />
+                <input type="text" name="attr_intelligence_class" />
+                <input type="text" name="attr_intelligence_skills" />
+                <input type="text" name="attr_intelligence_score" />
+                <input type="text" name="attr_intelligence_other" />
+                <input type="text" name="attr_intelligence_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Perception</label>
+                <input type="text" name="attr_perception" />
+                <input type="text" name="attr_perception_base" />
+                <input type="text" name="attr_perception_bonus" />
+                <input type="text" name="attr_perception_class" />
+                <input type="text" name="attr_perception_skills" />
+                <input type="text" name="attr_perception_score" />
+                <input type="text" name="attr_perception_other" />
+                <input type="text" name="attr_perception_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Spirit</label>
+                <input type="text" name="attr_spirit" />
+                <input type="text" name="attr_spirit_base" />
+                <input type="text" name="attr_spirit_bonus" />
+                <input type="text" name="attr_spirit_class" />
+                <input type="text" name="attr_spirit_skills" />
+                <input type="text" name="attr_spirit_score" />
+                <input type="text" name="attr_spirit_other" />
+                <input type="text" name="attr_spirit_check" />
+            </div>
+
+            <div class="sheet-ability-item">
+                <label>Luck</label>
+                <input type="text" name="attr_luck" />
+                <input type="text" name="attr_luck_base" />
+                <input type="text" name="attr_luck_bonus" />
+                <input type="text" name="attr_luck_class" />
+                <input type="text" name="attr_luck_skills" />
+                <input type="text" name="attr_luck_score" />
+                <input type="text" name="attr_luck_other" />
+                <input type="text" name="attr_luck_check" />
+            </div>
+        </div>
+
+        
+        
+        <!--div class="sheet-tooltip">Hover over me
+            <span class="sheet-tooltiptext">Tooltip text</span>
+        </div-->
+    </div>
+
+    <div class="sheet-page" id="sheet-page-scores">
+        Scores
+        
+    </div>
+
+    <div class="sheet-page" id="sheet-page-skills">
+        <div class="sheet-header">
+            Skills
+        </div>
+        <div class="sheet-content">
+            <fieldset class="repeating_skills">
+                <div class="sheet-skill-item">
+                    <button type="action" name="act_lock">⚙</button>
+                    <input type="hidden" class="sheet-lock"  name="attr_isLocked" value="0" />
+                    <div class="sheet-unlocked"> 
+                                            
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_name_label">Name</label>
+                            <input type="text" name="attr_name" />
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_level_label">SL</label>
+                            <input type="number" name="attr_SL" />
+                        </span>
+                        <span>/</span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_level_limit_label">SL Limit</label>
+                            <input type="number" name="attr_SL_max" />
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_timing_label">Timing</label>
+                            <input type="text" name="attr_Timing" readonly/>
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_check_label">Check</label>
+                            <input type="text" name="attr_Check" />
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_target_label">Target</label>
+                            <input type="text" name="attr_Target" />
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label data-i18n="skill_range_label">Range</label>
+                            <input type="text" name="attr_Range" />
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label  data-i18n="skill_cost_label">Cost</label>
+                            <input type="number" name="attr_Cost" />
+                        </span>
+                        
+                        <span class="sheet-labeled-field sheet-block">
+                            <label data-i18n="skill_effect_label">Effect</label>
+                            <textarea name="attr_effect"></textarea>
+                        </span>
+                    
+                    </div>
+                    <div class="sheet-locked">
+                        <input type="hidden" name="attr_hide" value="0">
+                        <div class="sheet-header">
+                            <input type="text" name="attr_name" placeholder="Skill Name" readonly/>
+                            <input type="number" name="attr_SL" placeholder="SL" readonly/>
+                            <span>/</span>
+                            <input type="number" name="attr_SL_max" placeholder="SL Limit" readonly/>
+                            <input type="number" name="attr_Cost" placeholder="Cost" readonly/>
+
+                            <button type="action" data-i18n="skill_use_label"  class="sheet-float-right" name="attr_use">Use</button>
+                            <button type="action" data-i18n="skill_show_label" class="sheet-float-right" name="attr_show">Show</button>
+                        </div>
+                        <div class="sheet-content">
+                            <span class="sheet-labeled-field">
+                                <label data-i18n="skill_timing_label">Timing</label>
+                                <input type="text" name="attr_Timing" readonly/>
+                            </span>
+                            <span class="sheet-labeled-field">
+                                <label data-i18n="skill_check_label">Check</label>
+                                <input type="text" name="attr_Check" readonly/>
+                            </span>
+                            <span class="sheet-labeled-field">
+                                <label data-i18n="skill_target_label">Target</label>
+                                <input type="text" name="attr_Target"readonly/>
+                            </span>
+                            <span class="sheet-labeled-field">
+                                <label data-i18n="skill_range_label">Range</label>
+                                <input type="text" name="attr_Range" readonly/>
+                            </span>
+                            <span class="sheet-labeled-field sheet-block">
+                                <label data-i18n="skill_effect_label">Effect</label>
+                                <textarea name="attr_effect" readonly></textarea>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="sheet-page" id="sheet-page-equipment">
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field sheet-name">
+                    <label>Right Hand</label>
+                    <input type="text"   name="attr_equip_handr_name" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Range</label>                    
+                    <input type="number" name="attr_equip_handr_range" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Attack Power</label>
+                    <input type="number" name="attr_equip_handr_attack" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Action Modifier</label>
+                    <input type="number" name="attr_equip_handr_action_mod" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Weight</label>
+                    <input type="number" name="attr_equip_handr_weight" />
+                </span>
+            </div>            
+            <div class="sheet-content">
+                <input type="hidden" name="attr_equip_handr_ref" />
+                <span class="sheet-labeled-field">
+                    <label>Hit Modifier</label>
+                    <input type="number" name="attr_equip_handr_hit_mod" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Evasion Mod</label>
+                    <input type="number" name="attr_equip_handr_eva_mod" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Physical Def</label>
+                    <input type="number" name="attr_equip_handr_phydef" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Magic Def</label>
+                    <input type="number" name="attr_equip_handr_magdef" />
+                </span>
+                <span class="sheet-labeled-field">
+                    <label>Movement Mod</label>
+                    <input type="number" name="attr_equip_handr_move_mod" />
+                </span>
+            </div>
+            <textarea            name="attr_equip_handr_note"></textarea>
+        </div>
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field">
+                    <label>Left Hand</label>
+                    <input type="text"   name="attr_equip_handl_name" />
+                </span>
+            </div>
+            <input type="hidden" name="attr_equip_handl_ref" />
+            <input type="number" name="attr_equip_handl_weight" />
+            <input type="number" name="attr_equip_handl_hit_mod" />
+            <input type="number" name="attr_equip_handl_attack" />
+            <input type="number" name="attr_equip_handl_eva_mod" />
+            <input type="number" name="attr_equip_handl_hitMod" />
+            <input type="number" name="attr_equip_handl_phydef" />
+            <input type="number" name="attr_equip_handl_magdef" />
+            <input type="number" name="attr_equip_handl_action_mod" />
+            <input type="number" name="attr_equip_handl_move_mod" />
+            <input type="number" name="attr_equip_handl_range" />
+            <textarea            name="attr_equip_handl_note"></textarea>
+        </div>
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field">
+                    <label>Head</label>
+                    <input type="text"   name="attr_equip_head_name" />
+                </span>
+            </div>
+            <input type="hidden" name="attr_equip_head_ref" />
+            <input type="number" name="attr_equip_head_weight" />
+            <input type="number" name="attr_equip_head_hit_mod" />
+            <input type="number" name="attr_equip_head_attack" />
+            <input type="number" name="attr_equip_head_eva_mod" />
+            <input type="number" name="attr_equip_head_hitMod" />
+            <input type="number" name="attr_equip_head_phydef" />
+            <input type="number" name="attr_equip_head_magdef" />
+            <input type="number" name="attr_equip_head_action_mod" />
+            <input type="number" name="attr_equip_head_move_mod" />
+            <input type="number" name="attr_equip_head_range" />
+            <textarea            name="attr_equip_head_note"></textarea>
+        </div>
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field">
+                    <label>Body</label>
+                    <input type="text"   name="attr_equip_body_name" />
+                </span>
+            </div>
+            <input type="hidden" name="attr_equip_body_ref" />
+            <input type="number" name="attr_equip_body_weight" />
+            <input type="number" name="attr_equip_body_hit_mod" />
+            <input type="number" name="attr_equip_body_attack" />
+            <input type="number" name="attr_equip_body_eva_mod" />
+            <input type="number" name="attr_equip_body_hitMod" />
+            <input type="number" name="attr_equip_body_phydef" />
+            <input type="number" name="attr_equip_body_magdef" />
+            <input type="number" name="attr_equip_body_action_mod" />
+            <input type="number" name="attr_equip_body_move_mod" />
+            <input type="number" name="attr_equip_body_range" />
+            <textarea            name="attr_equip_body_note"></textarea>
+        </div>
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field">
+                    <label>Aux Armor</label>
+                    <input type="text"   name="attr_equip_aux_name" />
+                </span>
+            </div>
+            <input type="hidden" name="attr_equip_aux_ref" />
+            <input type="number" name="attr_equip_aux_weight" />
+            <input type="number" name="attr_equip_aux_hit_mod" />
+            <input type="number" name="attr_equip_aux_attack" />
+            <input type="number" name="attr_equip_aux_eva_mod" />
+            <input type="number" name="attr_equip_aux_hitMod" />
+            <input type="number" name="attr_equip_aux_phydef" />
+            <input type="number" name="attr_equip_aux_magdef" />
+            <input type="number" name="attr_equip_aux_action_mod" />
+            <input type="number" name="attr_equip_aux_move_mod" />
+            <input type="number" name="attr_equip_aux_range" />
+            <textarea            name="attr_equip_aux_note"></textarea>
+        </div>
+        <div class="sheet-equipment-item">
+            <div class="sheet-header">
+                <span class="sheet-labeled-field">
+                    <label>Accessory</label>
+                    <input type="text"   name="attr_equip_accessory_name" />
+                </span>
+            </div>
+            <input type="hidden" name="attr_equip_accessory_ref" />
+            <input type="number" name="attr_equip_accessory_weight" />
+            <input type="number" name="attr_equip_accessory_hit_mod" />
+            <input type="number" name="attr_equip_accessory_attack" />
+            <input type="number" name="attr_equip_accessory_eva_mod" />
+            <input type="number" name="attr_equip_accessory_hitMod" />
+            <input type="number" name="attr_equip_accessory_phydef" />
+            <input type="number" name="attr_equip_accessory_magdef" />
+            <input type="number" name="attr_equip_accessory_action_mod" />
+            <input type="number" name="attr_equip_accessory_move_mod" />
+            <input type="number" name="attr_equip_accessory_range" />
+            <textarea            name="attr_equip_accessory_note"></textarea>
+        </div>
+
+        <div>
+            <fieldset class="repeating-inventory">
+                <div class="sheet-inventory-item">
+                    <input type="hidden" name="attr_effect">
+                    <input type="hidden" name="attr_weapon">
+                    <input type="hidden" name="attr_shield">
+                    <input type="hidden" name="attr_armor">
+                    <div class="sheet-equipment-common"> 
+                        <span class="sheet-labeled-field">
+                            <label>Name</label>
+                            <input type="text" name="attr_name">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Level</label>
+                        <input type="text" name="attr_level">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Weight</label>
+                            <input type="text" name="attr_weight">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Equip Slot</label>
+                            <input type="text" name="attr_equip_slot" placeholder="None">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Timing</label>
+                            <input type="text" name="attr_timing">
+                        </span>
+                        <!-- <span class="sheet-labeled-field">
+                            <label>Effect</label>
+                            <input type="checkbox" name="attr_effect">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Weapon</label>
+                            <input type="checkbox" name="attr_weapon">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Weapon</label>
+                            <input type="checkbox" name="attr_armor">
+                        </span> -->
+                    </div>
+                    <!-- <div class="sheet-equipment-weapon">
+                        <span class="sheet-labeled-field">
+                            <label>Hit Modifier</label>
+                            <input type="text" name="attr_hit_mod">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Attack Power</label>
+                            <input type="text" name="attr_attack_power">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Action Mod</label>
+                            <input type="text" name="attr_action_mod">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Range</label>
+                            <input type="text" name="attr_range">
+                        </span>
+                    </div>
+                    <div class="sheet-equipment-shield"> 
+                        <span class="sheet-labeled-field">
+                            <label>Phy Defense</label>
+                            <input type="text" name="attr_def_physical">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Mag Defense</label>
+                            <input type="text" name="attr_def_magic">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Action Mod</label>
+                            <input type="text" name="attr_action_mod">
+                        </span>
+                    </div>
+                    <div class="sheet-equipment-armor"> 
+                        <span class="sheet-labeled-field">
+                            <label>Dodge Modifier</label>
+                            <input type="text" name="attr_dodge_mod">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Physical Defense</label>
+                            <input type="text" name="attr_def_physical">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Magic Defense</label>
+                            <input type="text" name="attr_def_magic">
+                        </span>
+                        <span class="sheet-labeled-field">
+                            <label>Movement Mod</label>
+                            <input type="text" name="attr_action_mod">
+                        </span>
+                    </div> -->
+
+                    <span class="sheet-labeled-field">
+                        <label>Notes</label>
+                        <textarea type="text" name="attr_notes"></textarea>
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+
+    <div class="sheet-page" id="sheet-page-config">
+        Config
+    </div>
+
+</div>
+<script type="text/worker">
+    const currentVersion = 0.1;
+    const tabs = ["character","scores","skills","equipment","config"];
+
+    function versioning(v){
+        switch(v){
+            default:
+            break;
+        }
+    };
+
+    function switchPage(value){
+        setAttrs({"tab": value});
+    }
+    
+    on("sheet:opened", function(){
+        getAttrs(["version"], function(values){
+            let ver = parseFloat(values["version"]);
+            if(ver != currentVersion){
+                versioning(ver);
+            }
+        });
+    });
+
+    
+
+    tabs.forEach(function(tab){
+        on("clicked:tab_" + tab, function(){
+            console.log(`Clicked tab ${tab}`);
+            switchPage(tab);
+        });
+    });
+
+    on("clicked:repeating_skills:lock", function(e){
+        let update = {};
+        getAttrs(["repeating_skills_isLocked"], function(values){
+            let temp = parseInt(values["repeating_skills_isLocked"]) || 0;
+            update["repeating_skills_isLocked"] = (temp + 1) % 2;
+            console.log(`Clicked Lock. Set to ${temp}`);
+
+            setAttrs(update);
+        });
+    });
+    
+</script>
