@@ -12,24 +12,27 @@ mixin checkboxButton(_src0="https://img.icons8.com/material-sharp/452/folder-inv
 
 mixin labeledInput(_name="Label")
     span(class="sheet-labeled-field "+(attributes.class || ""))
-        label(data-i18n!=attributes["data-i18n"])=_name 
+        label(data-i18n!=attributes["data-i18n"] )=_name  
         if attributes.readonly
             input(
                 type!=attributes.type
                 name!=attributes.name
+                placeholder!=attributes["placeholder"]
                 readonly!="true"
                 )
         else 
             input(
                 type!=attributes.type
                 name!=attributes.name
+                placeholder!=attributes["placeholder"]
                 )
 
 mixin labeledDualInput(_name="Label")
-    span.sheet-labeled-dual
+    span.sheet-labeled-field-dual(class!=(attributes.class || ""))
+        //- label(data-i18n!=(attributes["data-i18n"] + "_Max"))=(_name + "_Max")
+        input(type!=attributes.type name!=attributes.name)
+        input(type!=attributes.type name!=(attributes.name + "_max"))
         label(data-i18n!=attributes["data-i18n"])=_name
-        input(type!=attributes.class name!=attributes.name)
-        input(type!=attributes.class name!=attributes.name)
             
 mixin labeledTextarea(_name="Label")
     span(class="sheet-labeled-field "+(attributes.class || "")) 
@@ -38,12 +41,14 @@ mixin labeledTextarea(_name="Label")
             textarea(
                 type!=attributes.type
                 name!=attributes.name
+                placeholder!=attributes["placeholder"]
                 readonly="true"
                 )
         else
             textarea(
                 type!=attributes.type
                 name!=attributes.name
+                placeholder!=attributes["placeholder"]
                 )
 
 mixin equipmentSlot(_name,_attr)
@@ -62,7 +67,7 @@ mixin equipmentSlot(_name,_attr)
             div
                 +labeledInput("Physical Defense")(class="sheet-short" data-i18n="physical_def" type="number" name=("attr_equipped_"+_attr+"_physical_def"))
                 +labeledInput("Magical Defense")(class="sheet-short" data-i18n="magical_def" type="number" name=("attr_equipped_"+_attr+"_physical_def"))
-                +labeledInput("Evasion Modifier")(class="sheet-short" data-i18n="evasion_mod" type="number" name=("attr_equipped_"+_attr+"_evasion_mod"))
+                +labeledInput("Evasion Modifier")(class="sheet-short" data-i18n="evasion_mod_abbr" type="number" name=("attr_equipped_"+_attr+"_evasion_mod"))
             div
                 +labeledInput("Hit Modifier")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_equipped_"+_attr+"_hit_mod"))
                 +labeledInput("Hit Modifier")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_equipped_"+_attr+"_hit_mod"))
@@ -78,19 +83,55 @@ mixin AbilityTableRow(_rowName)
         td 
             input(type="number" name!=(attributes.name+"_base"))
         td 
+            input(type="number" name!=(attributes.name+"_score") )
+        td 
             input(type="number" name!=(attributes.name+"_bonus"))
         td 
             input(type="number" name!=(attributes.name+"_class"))
-        td 
-            input(type="number" name!=(attributes.name+"_skill"))
-        td 
-            input(type="number" name!=(attributes.name+"_score") )
         td 
             input(type="number" name!=(attributes.name+"_other"))
         td 
             span.sheet-ability-check
                 input(type="number" name!=(attributes.name) )
                 //- button(type="action" name=`act_${_rowName_lower}` style="font-family:'dicefontd6'") F
+
+mixin EquipmentItem(_rowName)
+    - var _rowName_lower = _rowName.toLowerCase().replace(" ", "_");
+    - var _rowName_lower_attr = _rowName.toLowerCase().replace(" ", "_");
+    .sheet-equipment-item
+        span.sheet-labeled-field.sheet-fieldname
+            label(data-i18n=_rowName_lower_attr)= _rowName
+            input(type="text")
+        span.sheet-labeled-field.sheet-weight 
+            label(data-i18n="weight") Weight 
+            input(type="number" name=(attributes.name + "_weight") )
+        span.sheet-labeled-field.sheet-hit
+            label(data-i18n="hit_mod") Hit Mod 
+            input(type="number" name=(attributes.name + "_hit") )
+        span.sheet-labeled-field.sheet-power
+            label(data-i18n="power") Power 
+            input(type="number" name=(attributes.name + "_power") )
+        span.sheet-labeled-field.sheet-dodge
+            label(data-i18n="dodge") Dodge  
+            input(type="number" name=(attributes.name + "_dodge") )
+        span.sheet-labeled-field.sheet-phys-def
+            label(data-i18n="physical_defense_abbr") Physical Def 
+            input(type="number" name=(attributes.name + "_def_phy") )
+        span.sheet-labeled-field.sheet-mag-def
+            label(data-i18n="magic_defense_abbr") Magic Def 
+            input(type="number" name=(attributes.name + "_def_mag") )
+        span.sheet-labeled-field.sheet-action
+            label(data-i18n="action_modifier_abbr") Action Mod 
+            input(type="number" name=(attributes.name + "_action") )
+        span.sheet-labeled-field.sheet-move
+            label(data-i18n="movement") Movement  
+            input(type="number" name=(attributes.name + "_move") )
+        span.sheet-labeled-field.sheet-range
+            label(data-i18n="range") Range 
+            input(type="number" name=(attributes.name + "_range") )
+        span.sheet-labeled-field.sheet-effect
+            label(data-i18n="effect") Effect 
+            textarea(name=(attributes.name + "_effect"))
 
 .sheet-container
     input.sheet-tab(
@@ -110,32 +151,26 @@ mixin AbilityTableRow(_rowName)
                 div
                     +labeledInput("Name")(class="sheet-char-name" data-i18n="name" type="text" name="attr_character_name")
                 div 
-                    +labeledInput("Level")(class="sheet-short" data-i18n="level" type="number" name="attr_character_level")
                     +labeledInput("Class")(class="sheet-long" data-i18n="class" type="text" name="attr_character_class")
-                div
+                    +labeledInput("Level")(class="sheet-short" data-i18n="level" type="number" name="attr_character_level")
+                div                    
                     +labeledInput("EXP Used")(class="sheet-short" data-i18n="experience_used" type="number" name="attr_experience")
                     +labeledInput("EXP Total")(class="sheet-short" data-i18n="experience_total" type="number" name="attr_experience_max")
+                div 
+                     +labeledInput("Money")(class="sheet-short" data-i18n="money" type="number" name="attr_money")
                 div
                     +labeledTextarea("Lifestyle")(class="sheet-block" data-i18n="lifestyle" name="attr_lifestyle")
+            
+            hr
 
-            //- .sheet-abilities
-            //-     each abi in  abilities 
-            //-         - var abi_lower = abi.toLowerCase()
-            //-         .sheet-ability-item
-            //-             label(data-i18n=abi_lower)=abi 
-            //-             input(type="number" name=("attr_" + abi_lower) )
-            //-             each field in abilityField
-            //-                 input(type="number" name=("attr_" + abi_lower + "_" + field) )
-                
             table.sheet-abilities
                 tr 
                     th
                         label()  
                     th(data-i18n="ability_score_base") Base
+                    th(data-i18n="ability_score") Ability Score
                     th(data-i18n="ability_bonus") Ability Bonus
                     th(data-i18n="class_bonus") Class Bonus
-                    th(data-i18n="skill_bonus") Skill Bonus
-                    th(data-i18n="ability_score") Ability Score
                     th(data-i18n="other_bonus") Other 
                     th(data-i18n="ability_check") Check
                 +AbilityTableRow("Strength")( name="attr_ability_str")
@@ -144,165 +179,227 @@ mixin AbilityTableRow(_rowName)
                 +AbilityTableRow("Intelligence")( name="attr_ability_int")
                 +AbilityTableRow("Perception")( name="attr_ability_perc")
                 +AbilityTableRow("Spirit")( name="attr_ability_spirit")
-                +AbilityTableRow("Luck")( name="attr_ability_luck")
-                    
-                     
+                +AbilityTableRow("Luck")( name="attr_ability_luck")     
+            hr  
+            div.sheet-inventory
+                label.sheet-center Inventory
+                fieldset.repeating_inventory
+                    .sheet-inventory-item 
+                        input.sheet-lock(type="hidden" name="attr_lock")
+                        .sheet-header 
+                            +labeledInput("")( class="sheet-xlong" type="text" name="attr_name" placeholder="")
+                            |&nbsp;
+                            +labeledInput("Weight")( class="sheet-xshort" data-i18n="weight" type="number" name="attr_weight" placeholder="0" value=0)
+                            |&nbsp;
+                            +labeledInput("Amount")( class="sheet-xshort" data-i18n="amount" type="number" name="attr_count" placeholder="0" value=0 min="0")
+  
 
         .sheet-sidebar 
             div
                 img(class="sheet-avatar sheet-block" name="attr_character_avatar")
-                +labeledTextarea("Appearance")(class="sheet-block" data-i18n="appearance")
+                br
+                +labeledTextarea("Appearance")(class="sheet-block" data-i18n="appearance") 
             div 
-                +labeledInput("Age")(data-i18n="age" type="text" name="attr_character_age")
-                +labeledInput("Gender")(data-i18n="gender" type="text" name="attr_character_gender")
-                +labeledInput("Race")(data-i18n="race" type="text" name="attr_character_race")
+                
+                    +labeledDualInput("HP")(type="number" name="hp" data-i18n="hp")
+                    +labeledDualInput("MP")(type="number" name="mp" data-i18n="mp")
+                    +labeledDualInput("Blessings")(type="number" name="blessing" data-i18n="blessings") 
+            div 
+                div 
+                    +labeledInput("Race")(class="sheet-block" data-i18n="race" type="text" name="attr_character_race")
+                div
+                    +labeledInput("Age")(class="sheet-block" data-i18n="age" type="text" name="attr_character_age")
+                div 
+                    +labeledInput("Gender")(class="sheet-block" data-i18n="gender" type="text" name="attr_character_gender")
             div 
                 label Life Path
-                +labeledInput("Origin")(data-i18n="origin" type="text" name="attr_character_origin")
-                +labeledInput("Circumstance")(data-i18n="circumstance" type="text" name="attr_character_circumstance")
-                +labeledInput("Objective")(data-i18n="objective" type="text" name="attr_character_objective")
+                +labeledInput("Origin")(class="sheet-block" data-i18n="origin" type="text" name="attr_character_origin")
+                +labeledInput("Circumstance")(class="sheet-block" data-i18n="circumstance" type="text" name="attr_character_circumstance")
+                +labeledInput("Objective")(class="sheet-block" data-i18n="objective" type="text" name="attr_character_objective")
             div 
                 label Cheat 
                 +labeledInput("Cheat")(class="sheet-block" data-i18n="cheat" type="text" name="attr_cheat_name")
                 +labeledTextarea("Effect")(class="sheet-block" data-i18n="cheat_effect" type="text" name="attr_cheat_effect")
         
+        
+
     .sheet-page#sheet-page-checks
         .sheet-checks
             .sheet-check-item
-                label(data-i18n="hit_check") Hit Check 
-                input(type="hidden")
+                label(data-i18n="hit_check_wAbility") Hit Check [Dex]
                 span.sheet-grid
-                    +labeledInput("Ability")(class="sheet-short sheet-check-ability" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short sheet-check-hitmod" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short sheet-check-skill" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short sheet-check-other" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                +labeledInput("Dice")(class="sheet-short sheet-check-total" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                    +labeledInput("Ability")(class="sheet-short sheet-check-ability" data-i18n="ability" type="number" name=("attr_hitcheck_ability_mod") placeholder="0")
+                    +labeledInput("Hit Mod")(class="sheet-short sheet-check-hitmod" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short sheet-check-skill" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod")  placeholder="0")
+                    +labeledInput("Other")(class="sheet-short sheet-check-other" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short sheet-check-total" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
             .sheet-check-item
                 label(data-i18n="attack_power") Attack Power
                 span
-                    +labeledInput("Atk Power")(class="sheet-short" data-i18n="attack_power_abbrev" type="number" name=("attr_atkpowcheck_atk_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_atkpowcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_atkpowcheck_other"))
+                    +labeledInput("Ability")(class="sheet-short sheet-check-ability" data-i18n="ability" type="number" name=("") placeholder="0" readonly)
+                    +labeledInput("Atk Power")(class="sheet-short" data-i18n="attack_power_abbr" type="number" name=("attr_atkpowcheck_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_atkpowcheck_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_atkpowcheck_other") placeholder="0")
                     +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_atkpowcheck") readonly)
             .sheet-check-item
-                label(data-i18n="evasion") Evasion 
+                label(data-i18n="evasion") Evasion (Abi)
                 span
-                    +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                    +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_evasion_ability_mod") placeholder="0" )
+                    +labeledInput("Evasion Mod")(class="sheet-short" data-i18n="evasion_mod_abbr" type="number" name=("attr_evasion_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_evasion_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_evasion_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_evasion") readonly)
             .sheet-check-item
-                label(data-i18n="physical_defence") Physical Defence 
+                label(data-i18n="physical_defense") Physical Defense 
                 span
-                    +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                    +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("") placeholder="0" readonly)
+                    +labeledInput("Physical Def")(class="sheet-short" data-i18n="physical_defense_abbr" type="number" name=("attr_physdef_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_physdef_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_physdef_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_physdef") readonly)
             .sheet-check-item
-                label(data-i18n="magic_defense") Magic Defense 
+                label(data-i18n="magic_defense") Magic Defense (Spi)
                 span
-                    +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)   
+                    +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_magdef_ability_mod") placeholder="0")
+                    +labeledInput("Magic Def")(class="sheet-short" data-i18n="magic_defense_abbr" type="number" name=("attr_magdef_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_magdef_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_magdef_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_magdef") readonly)   
             .sheet-check-item
-                label(data-i18n="action_score") Action Score 
+                label(data-i18n="action_score") Action Score (Agi + Perc)
                 span
-                    +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)   
+                    +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_action_ability_mod") placeholder="0")
+                    +labeledInput("Action Mod")(class="sheet-short" data-i18n="action_mod" type="number" name=("attr_action_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_action_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_action_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_action") readonly)   
             .sheet-check-item
-                label(data-i18n="movement_ability") Movement Ability 
+                label(data-i18n="movement_ability") Movement Ability (Str + 5)
                 span
-                    +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                    +labeledInput("Hit Mod")(class="sheet-short" data-i18n="hit_mod" type="number" name=("attr_hitcheck_hit_mod"))
-                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)                  
-        
+                    +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_movement_ability_mod") placeholder="0")
+                    +labeledInput("Movement Mod")(class="sheet-short" data-i18n="movement_mod_abbr" type="number" name=("attr_movement_hit_mod") placeholder="0")
+                    +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_movement_skill_mod") placeholder="0" )
+                    +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_movement_other") placeholder="0")
+                    +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_movement") readonly)                  
+        br
         .sheet-special-checks 
                 .sheet-check-item
-                    label(data-i18n="trap_detection") Trap Detection 
+                    label(data-i18n="trap_detection") Trap Detection (Perc)
                     span
-                        +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                        +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_trapdetect_ability_mod") placeholder="0")
+                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_trapdetect_skill_mod")  placeholder="0")
+                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_trapdetect_other") placeholder="0")
+                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_trapdetect") readonly)
                 .sheet-check-item
-                    label(data-i18n="trap_disarming") Trap Disarming 
+                    label(data-i18n="trap_disarming") Trap Disarming (Perc)
                     span
-                        +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                        +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_trapdisarm_ability_mod") placeholder="0")
+                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_trapdisarm_skill_mod") placeholder="0" )
+                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_trapdisarm_other") placeholder="0")
+                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_trapdisarm") readonly)
                 .sheet-check-item
-                    label(data-i18n="sense_danger") Sense Danger 
+                    label(data-i18n="sense_danger") Sense Danger (Perc)
                     span
-                        +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                        +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_sense_ability_mod") placeholder="0")
+                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_sense_skill_mod") placeholder="0" )
+                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_sense_other") placeholder="0")
+                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_sense") readonly)
                 .sheet-check-item
-                    label(data-i18n="enemy_identification") Enemy Identification 
+                    label(data-i18n="enemy_identification") Enemy Identification (Int)
                     span
-                        +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                        +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_identify_ability_mod") placeholder="0")
+                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_identify_skill_mod") placeholder="0" )
+                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_identify_other") placeholder="0")
+                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_identify") readonly)
                 .sheet-check-item
-                    label(data-i18n="magic_check") Magic Check 
+                    label(data-i18n="magic_check") Magic Check (Int)
                     span
-                        +labeledInput("Ability")(class="sheet-short" data-i18n="dexterity" type="number" name=("attr_hitcheck_ability_mod"))
-                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_hitcheck_skill_mod") )
-                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_hitcheck_other"))
-                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_hitcheck") readonly)
+                        +labeledInput("Ability")(class="sheet-short" data-i18n="ability" type="number" name=("attr_magic_ability_mod") placeholder="0")
+                        +labeledInput("Skill Mod")(class="sheet-short" data-i18n="skill_bonus" type="number" name=("attr_magic_skill_mod") placeholder="0" )
+                        +labeledInput("Other")(class="sheet-short" data-i18n="other_bonus" type="number" name=("attr_magic_other") placeholder="0")
+                        +labeledInput("Dice")(class="sheet-short" data-i18n="total" type="number" name=("attr_magic") readonly)
 
     .sheet-page#sheet-page-skills
         .sheet-header 
 
         fieldset.repeating_skills.sheet-content
             .sheet-skill-item 
-                input(type="checkbox" name="attr_isLocked" value="checked" checked="checked")
-                input.sheet-lock(type="hidden" name="attr_isLocked" value="checked")
-                .sheet-unlocked
-                    .sheet-header
-                        +labeledInput("Skill Name")(data-i18n="skill_name" type="text" name="attr_name")
-                        +labeledInput("SL")(data-i18n="skill_level" type="number" name="attr_level" )
-                        +labeledInput("SL Limit")(data-i18n="skill_level_limit" type="number" name="attr_level_max" )
-                        +labeledInput("Timing")(data-i18n="timing" type="text" name="attr_timing" )
-                        +labeledInput("Check")(data-i18n="check" type="text" name="attr_check" )
-                    .sheet-content
-                        +labeledInput("Target")(data-i18n="target" type="text" name="attr_target" )
-                        +labeledInput("Range")(data-i18n="range" type="text" name="attr_range" )
-                        +labeledInput("Cost")(data-i18n="skill_cost" type="text" name="attr_cost" )
-                        +labeledTextarea("Effect")(class="sheet-block" data-i18n="effect" name="attr_level" )
-                .sheet-locked 
-                    .sheet-header
-                        +labeledInput("Skill Name")(data-i18n="skill_name" type="text" name="attr_name" readonly)
-                        +labeledInput("SL")(data-i18n="skill_level" type="number" name="attr_level" readonly)
-                        +labeledInput("SL Limit")(data-i18n="skill_level_limit" type="number" name="attr_level_max" readonly)
-                        +labeledInput("Timing")(data-i18n="timing" type="text" name="attr_timing" readonly)
-                        +labeledInput("Check")(data-i18n="check" type="text" name="attr_check" readonly)
-                    .sheet-content
-                        +labeledInput("Target")(data-i18n="target" type="text" name="attr_target" readonly)
-                        +labeledInput("Range")(data-i18n="range" type="text" name="attr_range" readonly)
-                        +labeledInput("Cost")(data-i18n="skill_cost" type="text" name="attr_cost" readonly)
-                        +labeledTextarea("Effect")(class="sheet-block" data-i18n="effect" name="attr_level" readonly)
+                //- input(type="checkbox" name="attr_isLocked" value="checked" checked="checked")
+                //- input.sheet-lock(type="hidden" name="attr_isLocked" value="checked")
+                //- .sheet-unlocked
+                .sheet-header
+                    +labeledInput("Skill Name")(class="sheet-long" data-i18n="skill_name" type="text" name="attr_name" placeholder="")
+                    +labeledInput("SL")( class="sheet-xshort sheet-center-text" data-i18n="skill_level" type="number" name="attr_level" )
+                    +labeledInput("SL Limit")(class="sheet-xshort sheet-center-text" data-i18n="skill_level_limit" type="number" name="attr_level_max" placeholder="---" )
+                .sheet-center 
+                    +labeledInput("Target")(class="sheet-center-text" data-i18n="target" type="text" name="attr_target" placeholder="---")
+                    +labeledInput("Range")(class="sheet-xshort sheet-center-text" data-i18n="range" type="text" name="attr_range" placeholder="---")
+                    +labeledInput("Cost")(class="sheet-xshort sheet-center-text" data-i18n="skill_cost" type="text" name="attr_cost" placeholder="---")
+                .sheet-footer 
+                    +labeledInput("Timing")(class="sheet-center-text" data-i18n="timing" type="text" name="attr_timing" placeholder="---")
+                    +labeledInput("Check")(class="sheet-center-text" data-i18n="check" type="text" name="attr_check" placeholder="---")
+                .sheet-description
+                    +labeledTextarea("Effect")(class="sheet-block" data-i18n="effect" name="attr_effect" )
+                //- .sheet-locked 
+                //-     .sheet-header
+                //-         +labeledInput("Skill Name")(class="sheet-long" data-i18n="skill_name" type="text" name="attr_name" readonly)
+                //-         +labeledInput("SL")(class="sheet-xshort sheet-center-text" data-i18n="skill_level" type="number" name="attr_level" readonly)
+                //-         +labeledInput("SL Limit")(class="sheet-xshort sheet-center-text" data-i18n="skill_level_limit" type="number" name="attr_level_max" readonly)
+                //-         +labeledInput("Timing")(class="sheet-short sheet-center-text" data-i18n="timing" type="text" name="attr_timing" readonly)
+                //-         +labeledInput("Check")(class="sheet-center-text" data-i18n="check" type="text" name="attr_check" readonly)
+                //-     .sheet-content
+                //-         +labeledInput("Target")(class="sheet-center-text" data-i18n="target" type="text" name="attr_target" readonly)
+                //-         +labeledInput("Range")(class="sheet-xshort sheet-center-text" data-i18n="range" type="text" name="attr_range" readonly)
+                //-         +labeledInput("Cost")(class="sheet-xshort sheet-center-text" data-i18n="skill_cost" type="text" name="attr_cost" readonly)
+                //-         +labeledTextarea("Effect")(class="sheet-block" data-i18n="effect" name="attr_effect" readonly)
     
     .sheet-page#sheet-page-equipment
-        .sheet-money Money
-        div
-            - let n = 0
-            while n < equipmentSlots.length
-                +equipmentSlot(equipmentSlots[n], equipmentSlots_attr[n]) 
-                - n++
-        fieldset.repeating-inventory
-            .sheet-inventory-item 
+               
+        .sheet-equipment 
+            +EquipmentItem("Right Hand")(data-i18n="right_hand" name="attr_equip_right_hand")
+            +EquipmentItem("Left Hand")(data-i18n="left_hand" name="attr_equip_left_hand")
+            +EquipmentItem("Head")(data-i18n="head" name="attr_equip_head")
+            +EquipmentItem("Body")(data-i18n="body" name="attr_equip_body")
+            +EquipmentItem("Other Armor")(data-i18n="other_armor" name="attr_equip_other_armor")
+            +EquipmentItem("Accessory")(data-i18n="accessory" name="attr_equip_accessory")
+            //- .sheet-equipment-item
+            //-     span.sheet-labeled-field.sheet-fieldname
+            //-         label Right Hand
+            //-         input(type="text")
+            //-     span.sheet-labeled-field.sheet-weight 
+            //-         label Weight 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-hit
+            //-         label Hit Mod 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-power
+            //-         label Power 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-dodge
+            //-         label Dodge  
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-phys-def
+            //-         label Physical Def 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-mag-def
+            //-         label Magic Def 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-action
+            //-         label Action Mod 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-move
+            //-         label Movement  
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-range
+            //-         label Range 
+            //-         input(type="number")
+            //-     span.sheet-labeled-field.sheet-effect
+            //-         label Effect 
+            //-         textarea
+
+              
+
+        
 
  
 

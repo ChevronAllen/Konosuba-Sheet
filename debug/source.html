@@ -14,33 +14,37 @@
             <label data-i18n="name">Name</label>
             <input type="text" name="attr_character_name"/></span>
         </div>
-        <div> <span class="sheet-labeled-field sheet-short">
-            <label data-i18n="level">Level</label>
-            <input type="number" name="attr_character_level"/></span><span class="sheet-labeled-field sheet-long">
+        <div> <span class="sheet-labeled-field sheet-long">
             <label data-i18n="class">Class</label>
-            <input type="text" name="attr_character_class"/></span>
+            <input type="text" name="attr_character_class"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="level">Level</label>
+            <input type="number" name="attr_character_level"/></span>
         </div>
-        <div><span class="sheet-labeled-field sheet-short">
+        <div>                   <span class="sheet-labeled-field sheet-short">
             <label data-i18n="experience_used">EXP Used</label>
             <input type="number" name="attr_experience"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="experience_total">EXP Total</label>
             <input type="number" name="attr_experience_max"/></span>
+        </div>
+        <div> <span class="sheet-labeled-field sheet-short">
+            <label data-i18n="money">Money</label>
+            <input type="number" name="attr_money"/></span>
         </div>
         <div><span class="sheet-labeled-field sheet-block"> 
             <label data-i18n="lifestyle">Lifestyle</label>
             <textarea name="attr_lifestyle"></textarea></span>
         </div>
       </div>
+      <hr/>
       <table class="sheet-abilities">
         <tr> 
           <th>
             <label> </label>
           </th>
           <th data-i18n="ability_score_base">Base</th>
+          <th data-i18n="ability_score">Ability Score</th>
           <th data-i18n="ability_bonus">Ability Bonus</th>
           <th data-i18n="class_bonus">Class Bonus</th>
-          <th data-i18n="skill_bonus">Skill Bonus</th>
-          <th data-i18n="ability_score">Ability Score</th>
           <th data-i18n="other_bonus">Other </th>
           <th data-i18n="ability_check">Check</th>
         </tr>
@@ -52,16 +56,13 @@
             <input type="number" name="attr_ability_str_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_str_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_str_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_str_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_str_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_str_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_str_other"/>
@@ -77,16 +78,13 @@
             <input type="number" name="attr_ability_dex_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_dex_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_dex_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_dex_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_dex_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_dex_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_dex_other"/>
@@ -102,16 +100,13 @@
             <input type="number" name="attr_ability_agi_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_agi_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_agi_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_agi_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_agi_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_agi_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_agi_other"/>
@@ -127,16 +122,13 @@
             <input type="number" name="attr_ability_int_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_int_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_int_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_int_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_int_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_int_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_int_other"/>
@@ -152,16 +144,13 @@
             <input type="number" name="attr_ability_perc_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_perc_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_perc_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_perc_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_perc_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_perc_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_perc_other"/>
@@ -177,16 +166,13 @@
             <input type="number" name="attr_ability_spirit_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_spirit_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_spirit_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_spirit_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_spirit_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_spirit_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_spirit_other"/>
@@ -202,16 +188,13 @@
             <input type="number" name="attr_ability_luck_base"/>
           </td>
           <td> 
+            <input type="number" name="attr_ability_luck_score"/>
+          </td>
+          <td> 
             <input type="number" name="attr_ability_luck_bonus"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_luck_class"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_luck_skill"/>
-          </td>
-          <td> 
-            <input type="number" name="attr_ability_luck_score"/>
           </td>
           <td> 
             <input type="number" name="attr_ability_luck_other"/>
@@ -220,26 +203,60 @@
               <input type="number" name="attr_ability_luck"/></span></td>
         </tr>
       </table>
+      <hr/>
+      <div class="sheet-inventory">
+        <label class="sheet-center">Inventory</label>
+        <fieldset class="repeating_inventory">
+          <div class="sheet-inventory-item"> 
+            <input class="sheet-lock" type="hidden" name="attr_lock"/>
+            <div class="sheet-header"> <span class="sheet-labeled-field sheet-xlong">
+                <label></label>
+                <input type="text" name="attr_name" placeholder=""/></span>&nbsp;<span class="sheet-labeled-field sheet-xshort">
+                <label data-i18n="weight">Weight</label>
+                <input type="number" name="attr_weight" placeholder="0"/></span>&nbsp;<span class="sheet-labeled-field sheet-xshort">
+                <label data-i18n="amount">Amount</label>
+                <input type="number" name="attr_count" placeholder="0"/></span>
+            </div>
+          </div>
+        </fieldset>
+      </div>
     </div>
     <div class="sheet-sidebar"> 
-      <div><img class="sheet-avatar sheet-block" name="attr_character_avatar"/><span class="sheet-labeled-field sheet-block"> 
+      <div><img class="sheet-avatar sheet-block" name="attr_character_avatar"/><br/><span class="sheet-labeled-field sheet-block"> 
           <label data-i18n="appearance">Appearance</label>
           <textarea></textarea></span>
       </div>
-      <div> <span class="sheet-labeled-field ">
-          <label data-i18n="age">Age</label>
-          <input type="text" name="attr_character_age"/></span><span class="sheet-labeled-field ">
-          <label data-i18n="gender">Gender</label>
-          <input type="text" name="attr_character_gender"/></span><span class="sheet-labeled-field ">
-          <label data-i18n="race">Race</label>
-          <input type="text" name="attr_character_race"/></span>
+      <div> <span class="sheet-labeled-field-dual">
+          <input type="number" name="hp"/>
+          <input type="number" name="hp_max"/>
+          <label data-i18n="hp">HP</label></span><span class="sheet-labeled-field-dual">
+          <input type="number" name="mp"/>
+          <input type="number" name="mp_max"/>
+          <label data-i18n="mp">MP</label></span><span class="sheet-labeled-field-dual">
+          <input type="number" name="blessing"/>
+          <input type="number" name="blessing_max"/>
+          <label data-i18n="blessings">Blessings</label></span>
       </div>
       <div> 
-        <label>Life Path</label><span class="sheet-labeled-field ">
+        <div> <span class="sheet-labeled-field sheet-block">
+            <label data-i18n="race">Race</label>
+            <input type="text" name="attr_character_race"/></span>
+        </div>
+        <div><span class="sheet-labeled-field sheet-block">
+            <label data-i18n="age">Age</label>
+            <input type="text" name="attr_character_age"/></span>
+        </div>
+        <div> <span class="sheet-labeled-field sheet-block">
+            <label data-i18n="gender">Gender</label>
+            <input type="text" name="attr_character_gender"/></span>
+        </div>
+      </div>
+      <div> 
+        <label>Life Path</label><span class="sheet-labeled-field sheet-block">
           <label data-i18n="origin">Origin</label>
-          <input type="text" name="attr_character_origin"/></span><span class="sheet-labeled-field ">
+          <input type="text" name="attr_character_origin"/></span><span class="sheet-labeled-field sheet-block">
           <label data-i18n="circumstance">Circumstance</label>
-          <input type="text" name="attr_character_circumstance"/></span><span class="sheet-labeled-field ">
+          <input type="text" name="attr_character_circumstance"/></span><span class="sheet-labeled-field sheet-block">
           <label data-i18n="objective">Objective</label>
           <input type="text" name="attr_character_objective"/></span>
       </div>
@@ -255,151 +272,152 @@
   <div class="sheet-page" id="sheet-page-checks">
     <div class="sheet-checks">
       <div class="sheet-check-item">
-        <label data-i18n="hit_check">Hit Check </label>
-        <input type="hidden"/><span class="sheet-grid"><span class="sheet-labeled-field sheet-short sheet-check-ability">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short sheet-check-hitmod">
+        <label data-i18n="hit_check_wAbility">Hit Check [Dex]</label><span class="sheet-grid"><span class="sheet-labeled-field sheet-short sheet-check-ability">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_hitcheck_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short sheet-check-hitmod">
             <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short sheet-check-skill">
+            <input type="number" name="attr_hitcheck_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short sheet-check-skill">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short sheet-check-other">
+            <input type="number" name="attr_hitcheck_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short sheet-check-other">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span></span><span class="sheet-labeled-field sheet-short sheet-check-total">
-          <label data-i18n="total">Dice</label>
-          <input type="number" name="attr_hitcheck" readonly="true"/></span>
+            <input type="number" name="attr_hitcheck_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short sheet-check-total">
+            <label data-i18n="total">Dice</label>
+            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="attack_power">Attack Power</label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbrev">Atk Power</label>
-            <input type="number" name="attr_atkpowcheck_atk_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="attack_power">Attack Power</label><span><span class="sheet-labeled-field sheet-short sheet-check-ability">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="" placeholder="0" readonly="true"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="attack_power_abbr">Atk Power</label>
+            <input type="number" name="attr_atkpowcheck_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_atkpowcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_atkpowcheck_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_atkpowcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_atkpowcheck_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
             <input type="number" name="attr_atkpowcheck" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="evasion">Evasion </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="evasion">Evasion (Abi)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_evasion_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="evasion_mod_abbr">Evasion Mod</label>
+            <input type="number" name="attr_evasion_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_evasion_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_evasion_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_evasion" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="physical_defence">Physical Defence </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="physical_defense">Physical Defense </label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="" placeholder="0" readonly="true"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="physical_defense_abbr">Physical Def</label>
+            <input type="number" name="attr_physdef_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_physdef_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_physdef_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_physdef" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="magic_defense">Magic Defense </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="magic_defense">Magic Defense (Spi)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_magdef_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="magic_defense_abbr">Magic Def</label>
+            <input type="number" name="attr_magdef_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_magdef_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_magdef_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_magdef" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="action_score">Action Score </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="action_score">Action Score (Agi + Perc)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_action_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="action_mod">Action Mod</label>
+            <input type="number" name="attr_action_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_action_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_action_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_action" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="movement_ability">Movement Ability </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="hit_mod">Hit Mod</label>
-            <input type="number" name="attr_hitcheck_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="movement_ability">Movement Ability (Str + 5)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_movement_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="movement_mod_abbr">Movement Mod</label>
+            <input type="number" name="attr_movement_hit_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_movement_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_movement_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_movement" readonly="true"/></span></span>
       </div>
-    </div>
+    </div><br/>
     <div class="sheet-special-checks"> 
       <div class="sheet-check-item">
-        <label data-i18n="trap_detection">Trap Detection </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="trap_detection">Trap Detection (Perc)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_trapdetect_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_trapdetect_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_trapdetect_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_trapdetect" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="trap_disarming">Trap Disarming </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="trap_disarming">Trap Disarming (Perc)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_trapdisarm_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_trapdisarm_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_trapdisarm_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_trapdisarm" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="sense_danger">Sense Danger </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="sense_danger">Sense Danger (Perc)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_sense_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_sense_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_sense_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_sense" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="enemy_identification">Enemy Identification </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="enemy_identification">Enemy Identification (Int)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_identify_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_identify_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_identify_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_identify" readonly="true"/></span></span>
       </div>
       <div class="sheet-check-item">
-        <label data-i18n="magic_check">Magic Check </label><span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="dexterity">Ability</label>
-            <input type="number" name="attr_hitcheck_ability_mod"/></span><span class="sheet-labeled-field sheet-short">
+        <label data-i18n="magic_check">Magic Check (Int)</label><span><span class="sheet-labeled-field sheet-short">
+            <label data-i18n="ability">Ability</label>
+            <input type="number" name="attr_magic_ability_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="skill_bonus">Skill Mod</label>
-            <input type="number" name="attr_hitcheck_skill_mod"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_magic_skill_mod" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="other_bonus">Other</label>
-            <input type="number" name="attr_hitcheck_other"/></span><span class="sheet-labeled-field sheet-short">
+            <input type="number" name="attr_magic_other" placeholder="0"/></span><span class="sheet-labeled-field sheet-short">
             <label data-i18n="total">Dice</label>
-            <input type="number" name="attr_hitcheck" readonly="true"/></span></span>
+            <input type="number" name="attr_magic" readonly="true"/></span></span>
       </div>
     </div>
   </div>
@@ -407,299 +425,183 @@
     <div class="sheet-header"> </div>
     <fieldset class="repeating_skills sheet-content">
       <div class="sheet-skill-item"> 
-        <input type="checkbox" name="attr_isLocked" value="checked" checked="checked"/>
-        <input class="sheet-lock" type="hidden" name="attr_isLocked" value="checked"/>
-        <div class="sheet-unlocked">
-          <div class="sheet-header"><span class="sheet-labeled-field ">
-              <label data-i18n="skill_name">Skill Name</label>
-              <input type="text" name="attr_name"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_level">SL</label>
-              <input type="number" name="attr_level"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_level_limit">SL Limit</label>
-              <input type="number" name="attr_level_max"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="timing">Timing</label>
-              <input type="text" name="attr_timing"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="check">Check</label>
-              <input type="text" name="attr_check"/></span>
-          </div>
-          <div class="sheet-content"><span class="sheet-labeled-field ">
-              <label data-i18n="target">Target</label>
-              <input type="text" name="attr_target"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="range">Range</label>
-              <input type="text" name="attr_range"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_cost">Cost</label>
-              <input type="text" name="attr_cost"/></span><span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="effect">Effect</label>
-              <textarea name="attr_level"></textarea></span>
-          </div>
+        <div class="sheet-header"><span class="sheet-labeled-field sheet-long">
+            <label data-i18n="skill_name">Skill Name</label>
+            <input type="text" name="attr_name" placeholder=""/></span><span class="sheet-labeled-field sheet-xshort sheet-center-text">
+            <label data-i18n="skill_level">SL</label>
+            <input type="number" name="attr_level"/></span><span class="sheet-labeled-field sheet-xshort sheet-center-text">
+            <label data-i18n="skill_level_limit">SL Limit</label>
+            <input type="number" name="attr_level_max" placeholder="---"/></span>
         </div>
-        <div class="sheet-locked"> 
-          <div class="sheet-header"><span class="sheet-labeled-field ">
-              <label data-i18n="skill_name">Skill Name</label>
-              <input type="text" name="attr_name" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_level">SL</label>
-              <input type="number" name="attr_level" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_level_limit">SL Limit</label>
-              <input type="number" name="attr_level_max" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="timing">Timing</label>
-              <input type="text" name="attr_timing" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="check">Check</label>
-              <input type="text" name="attr_check" readonly="true"/></span>
-          </div>
-          <div class="sheet-content"><span class="sheet-labeled-field ">
-              <label data-i18n="target">Target</label>
-              <input type="text" name="attr_target" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="range">Range</label>
-              <input type="text" name="attr_range" readonly="true"/></span><span class="sheet-labeled-field ">
-              <label data-i18n="skill_cost">Cost</label>
-              <input type="text" name="attr_cost" readonly="true"/></span><span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="effect">Effect</label>
-              <textarea name="attr_level" readonly="true"></textarea></span>
-          </div>
+        <div class="sheet-center"> <span class="sheet-labeled-field sheet-center-text">
+            <label data-i18n="target">Target</label>
+            <input type="text" name="attr_target" placeholder="---"/></span><span class="sheet-labeled-field sheet-xshort sheet-center-text">
+            <label data-i18n="range">Range</label>
+            <input type="text" name="attr_range" placeholder="---"/></span><span class="sheet-labeled-field sheet-xshort sheet-center-text">
+            <label data-i18n="skill_cost">Cost</label>
+            <input type="text" name="attr_cost" placeholder="---"/></span>
+        </div>
+        <div class="sheet-footer"> <span class="sheet-labeled-field sheet-center-text">
+            <label data-i18n="timing">Timing</label>
+            <input type="text" name="attr_timing" placeholder="---"/></span><span class="sheet-labeled-field sheet-center-text">
+            <label data-i18n="check">Check</label>
+            <input type="text" name="attr_check" placeholder="---"/></span>
+        </div>
+        <div class="sheet-description"><span class="sheet-labeled-field sheet-block"> 
+            <label data-i18n="effect">Effect</label>
+            <textarea name="attr_effect"></textarea></span>
         </div>
       </div>
     </fieldset>
   </div>
   <div class="sheet-page" id="sheet-page-equipment">
-    <div class="sheet-money">Money</div>
-    <div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_rhand_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_rhand_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="right hand">Right Hand</label>
-            <input type="text" name="attr_equipped_rhand_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_rhand_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_rhand_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_rhand_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_rhand_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_rhand_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_rhand_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_rhand_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_rhand_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_rhand_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_rhand_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_rhand_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_lhand_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_lhand_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="left hand">Left Hand</label>
-            <input type="text" name="attr_equipped_lhand_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_lhand_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_lhand_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_lhand_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_lhand_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_lhand_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_lhand_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_lhand_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_lhand_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_lhand_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_lhand_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_lhand_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_head_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_head_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="head">Head</label>
-            <input type="text" name="attr_equipped_head_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_head_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_head_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_head_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_head_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_head_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_head_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_head_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_head_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_head_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_head_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_head_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_body_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_body_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="body">Body</label>
-            <input type="text" name="attr_equipped_body_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_body_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_body_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_body_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_body_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_body_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_body_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_body_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_body_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_body_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_body_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_body_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_aux_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_aux_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="auxiliary">Auxiliary</label>
-            <input type="text" name="attr_equipped_aux_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_aux_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_aux_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_aux_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_aux_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_aux_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_aux_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_aux_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_aux_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_aux_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_aux_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_aux_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
-      <div class="sheet-equipment-item">
-        <input type="hidden" name="attr_equipped_accessory_collapse"/>
-        <div class="sheet-header"> <span class="sheet-checkbox-button">
-            <input type="checkbox" name="attr_equipped_accessory_collapse" value="checked"/><img class="sheet-unchecked" src="https://img.icons8.com/material-sharp/452/folder-invoices.png" alt=""/><img class="sheet-checked" src="https://img.icons8.com/material-sharp/452/opened-folder.png" alt=""/></span><span class="sheet-labeled-field sheet-long">
-            <label data-i18n="accessory">Accessory</label>
-            <input type="text" name="attr_equipped_accessory_name"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="range">Range</label>
-            <input type="text" name="attr_equipped_accessory_range"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="attack_power_abbr">Attack Power</label>
-            <input type="number" name="attr_equipped_accessory_attack"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="action_mod_abbr">Action Modifier</label>
-            <input type="number" name="attr_equipped_accessory_action_mod"/></span><span class="sheet-labeled-field sheet-short">
-            <label data-i18n="weight">Weight</label>
-            <input type="number" name="attr_equipped_accessory_weight"/></span>
-        </div>
-        <div class="sheet-content">
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="physical_def">Physical Defense</label>
-              <input type="number" name="attr_equipped_accessory_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="magical_def">Magical Defense</label>
-              <input type="number" name="attr_equipped_accessory_physical_def"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="evasion_mod">Evasion Modifier</label>
-              <input type="number" name="attr_equipped_accessory_evasion_mod"/></span>
-          </div>
-          <div><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_accessory_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="hit_mod">Hit Modifier</label>
-              <input type="number" name="attr_equipped_accessory_hit_mod"/></span><span class="sheet-labeled-field sheet-short">
-              <label data-i18n="movement_mod">Movement Mod</label>
-              <input type="number" name="attr_equipped_accessory_movement_mod"/></span>
-          </div>
-          <div>           <span class="sheet-labeled-field sheet-block"> 
-              <label data-i18n="notes">Notes</label>
-              <textarea name="attr_equipped_accessory_notes"></textarea></span>
-          </div>
-        </div>
-      </div>
+    <div class="sheet-equipment"> 
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="right_hand">Right Hand</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_right_hand_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_right_hand_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_right_hand_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_right_hand_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_right_hand_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_right_hand_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_right_hand_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_right_hand_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_right_hand_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_right_hand_effect"></textarea></span></div>
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="left_hand">Left Hand</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_left_hand_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_left_hand_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_left_hand_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_left_hand_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_left_hand_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_left_hand_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_left_hand_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_left_hand_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_left_hand_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_left_hand_effect"></textarea></span></div>
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="head">Head</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_head_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_head_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_head_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_head_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_head_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_head_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_head_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_head_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_head_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_head_effect"></textarea></span></div>
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="body">Body</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_body_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_body_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_body_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_body_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_body_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_body_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_body_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_body_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_body_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_body_effect"></textarea></span></div>
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="other_armor">Other Armor</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_other_armor_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_other_armor_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_other_armor_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_other_armor_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_other_armor_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_other_armor_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_other_armor_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_other_armor_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_other_armor_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_other_armor_effect"></textarea></span></div>
+      <div class="sheet-equipment-item"><span class="sheet-labeled-field sheet-fieldname">
+          <label data-i18n="accessory">Accessory</label>
+          <input type="text"/></span><span class="sheet-labeled-field sheet-weight"> 
+          <label data-i18n="weight">Weight </label>
+          <input type="number" name="attr_equip_accessory_weight"/></span><span class="sheet-labeled-field sheet-hit">
+          <label data-i18n="hit_mod">Hit Mod </label>
+          <input type="number" name="attr_equip_accessory_hit"/></span><span class="sheet-labeled-field sheet-power">
+          <label data-i18n="power">Power </label>
+          <input type="number" name="attr_equip_accessory_power"/></span><span class="sheet-labeled-field sheet-dodge">
+          <label data-i18n="dodge">Dodge  </label>
+          <input type="number" name="attr_equip_accessory_dodge"/></span><span class="sheet-labeled-field sheet-phys-def">
+          <label data-i18n="physical_defense_abbr">Physical Def </label>
+          <input type="number" name="attr_equip_accessory_def_phy"/></span><span class="sheet-labeled-field sheet-mag-def">
+          <label data-i18n="magic_defense_abbr">Magic Def </label>
+          <input type="number" name="attr_equip_accessory_def_mag"/></span><span class="sheet-labeled-field sheet-action">
+          <label data-i18n="action_modifier_abbr">Action Mod </label>
+          <input type="number" name="attr_equip_accessory_action"/></span><span class="sheet-labeled-field sheet-move">
+          <label data-i18n="movement">Movement  </label>
+          <input type="number" name="attr_equip_accessory_move"/></span><span class="sheet-labeled-field sheet-range">
+          <label data-i18n="range">Range </label>
+          <input type="number" name="attr_equip_accessory_range"/></span><span class="sheet-labeled-field sheet-effect">
+          <label data-i18n="effect">Effect </label>
+          <textarea name="attr_equip_accessory_effect"></textarea></span></div>
     </div>
-    <fieldset class="repeating-inventory">
-      <div class="sheet-inventory-item"> </div>
-    </fieldset>
   </div>
 </div>
 <script type="text/worker">
     const currentVersion = 0.2;
     const tabs = ["character","checks","skills","equipment","config"];
+    const checks = ["hitcheck","atkpowcheck","evasion","physdef","magdef","action",
+                    "movement","trapdisarm","trapdetect","sense","identify","magic"];
 
     function versioning(v){
         switch(v){
@@ -721,11 +623,9 @@
         });
     });
 
-
-
     tabs.forEach(function(tab){
         on("clicked:tab_" + tab, function(){
-            console.log(`Clicked tab ${tab}`);
+            // console.log(`Clicked tab ${tab}`);
             switchPage(tab);
         });
     });
@@ -739,6 +639,22 @@
             console.log(`Clicked Lock. Set to ${temp}`);
 
             setAttrs(update);
+        });
+    });
+
+    checks.forEach(function(check){
+        on(`change:${check}_ability_mod change:${check}_hit_mod change:${check}_skill_mod change:${check}_other`,function(){
+            let update ={};
+            getAttrs([`${check}_ability_mod`, `${check}_hit_mod`, `${check}_skill_mod`,`${check}_other`], function(values){
+                let ability = parseInt(values[`${check}_ability_mod`]) | 0;
+                let hit = parseInt(values[`${check}_hit_mod`]) | 0;
+                let skill = parseInt(values[`${check}_skill_mod`]) | 0;
+                let other = parseInt(values[`${check}_other`]) | 0;
+                update[`${check}`] = (ability+hit+skill+other);
+
+                setAttrs(update,{silent:true});
+            }); 
+
         });
     });
 </script>

@@ -1,6 +1,8 @@
 
     const currentVersion = 0.2;
     const tabs = ["character","checks","skills","equipment","config"];
+    const checks = ["hitcheck","atkpowcheck","evasion","physdef","magdef","action",
+                    "movement","trapdisarm","trapdetect","sense","identify","magic"];
 
     function versioning(v){
         switch(v){
@@ -22,11 +24,9 @@
         });
     });
 
-
-
     tabs.forEach(function(tab){
         on("clicked:tab_" + tab, function(){
-            console.log(`Clicked tab ${tab}`);
+            // console.log(`Clicked tab ${tab}`);
             switchPage(tab);
         });
     });
@@ -40,5 +40,21 @@
             console.log(`Clicked Lock. Set to ${temp}`);
 
             setAttrs(update);
+        });
+    });
+
+    checks.forEach(function(check){
+        on(`change:${check}_ability_mod change:${check}_hit_mod change:${check}_skill_mod change:${check}_other`,function(){
+            let update ={};
+            getAttrs([`${check}_ability_mod`, `${check}_hit_mod`, `${check}_skill_mod`,`${check}_other`], function(values){
+                let ability = parseInt(values[`${check}_ability_mod`]) | 0;
+                let hit = parseInt(values[`${check}_hit_mod`]) | 0;
+                let skill = parseInt(values[`${check}_skill_mod`]) | 0;
+                let other = parseInt(values[`${check}_other`]) | 0;
+                update[`${check}`] = (ability+hit+skill+other);
+
+                setAttrs(update,{silent:true});
+            }); 
+
         });
     });

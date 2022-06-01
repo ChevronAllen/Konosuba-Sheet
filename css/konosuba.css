@@ -4,11 +4,21 @@
          url('https://github.com/ChevronAllen/Konosuba-Sheet/raw/main/konosuba.ttf')  format('truetype') /* Safari, Android, iOS */
 }
 
-button[type=roll].sheet-d6-dice::before {
+.charsheet button[type=roll].sheet-d6-dice::before {
     font-family: 'dicefontd6';
     content: 'F ';
 }
+.charsheet hr{
+    border-color: #754b004f;
+    border-width: 5px;
+}
 
+.charsheet input:focus,
+.charsheet select:focus,
+.charsheet textarea:focus,
+.charsheet button:focus{
+    outline:1px solid #b9681e;
+}
 .charsheet input::-webkit-outer-spin-button,
 .charsheet input::-webkit-inner-spin-button {
    -webkit-appearance: none;
@@ -29,6 +39,7 @@ button[type=roll].sheet-d6-dice::before {
 }
 .charsheet input[type="number"] {
    -moz-appearance: textfield;
+   text-align: center;
 }
 .sheet-custom-font{
     font-family: KonosubaFont, Arial, Helvetica, sans-serif;
@@ -37,10 +48,18 @@ button[type=roll].sheet-d6-dice::before {
     resize: vertical;
     box-sizing: border-box;
 }
+.sheet-float-right{
+    float:right;
+}
+.charsheet .sheet-center-text{
+    text-align: center;
+}
 
-span.sheet-labeled-field{
+span.sheet-labeled-field,
+span.sheet-labeled-field-dual{
     display: inline-block;
     position:relative;
+    box-sizing: border-box;
 }
 span.sheet-labeled-field label{
     position: absolute;
@@ -59,6 +78,7 @@ span.sheet-labeled-field input{
     border-radius: 0;
     z-index: 0;
     padding-top:1em;
+    text-align: inherit;    
 }
 span.sheet-labeled-field textarea{
     width: 100%;
@@ -66,12 +86,62 @@ span.sheet-labeled-field textarea{
     border-radius: 0;
     z-index: 0;
     padding-top:1em;
+    margin:0;
+    text-align: inherit;
 }
-span.sheet-labeled-field.sheet-short{
+span.sheet-labeled-field.sheet-xshort,
+span.sheet-labeled-field-dual.sheet-xshort{
+    width:70px;
+}
+span.sheet-labeled-field.sheet-short,
+span.sheet-labeled-field-dual.sheet-short{
     width:100px;
 }
 span.sheet-labeled-field.sheet-long{
     width:250px;
+}
+span.sheet-labeled-field.sheet-xlong{
+    width:300px;
+}
+
+span.sheet-labeled-field-dual{
+    position:relative;
+    display: inline-block;
+    /* border: 1px solid black; */
+    padding:10px 5px 5px 5px;
+    background-color: rgb(200, 176, 133);
+}
+span.sheet-labeled-field-dual label{
+    position: absolute;
+    top: 0;
+    left:0.1em;
+    z-index: 2;
+    font-size: x-small;
+    font-weight: bold;
+    pointer-events: none; 
+    max-width: calc(100% - 1em);
+    overflow: hidden;
+    text-overflow: clip;
+}
+span.sheet-labeled-field-dual input{
+    display:block;
+    /* border-bottom: 1px solid  black; */
+    background-color: transparent !important; 
+    padding:0.5rem;
+    width: 100% !important;
+    line-height: 4rem;
+    font-size: 3rem;
+}
+span.sheet-labeled-field-dual input:nth-of-type(2){
+    border-bottom:none !important;
+}
+span.sheet-labeled-field-dual input:nth-of-type(1){
+    border-bottom: 2px solid  black !important;
+}
+
+.sheet-sidebar .sheet-labeled-field-dual{
+    width:30%;
+    margin-left:5px;
 }
 
 span.sheet-ability-check{
@@ -152,7 +222,7 @@ span.sheet-ability-check button{
 .charsheet{
     display: block;
     width:100%;
-    min-width: 820px;
+    min-width: 850px;
 }
 
 .sheet-float-right{
@@ -180,16 +250,18 @@ span.sheet-ability-check button{
     display: none;
 }
 
-input.sheet-tab[value="character"] ~ #sheet-page-character,
+input.sheet-tab[value="character"] ~ #sheet-page-character{
+    display: grid;
+}
 input.sheet-tab[value="checks"] ~ #sheet-page-checks,
 input.sheet-tab[value="skills"] ~ #sheet-page-skills,
 input.sheet-tab[value="equipment"] ~ #sheet-page-equipment,
 input.sheet-tab[value="config"] ~ #sheet-page-config{
-    display: grid;
+    display:block;
 }
 
 #sheet-page-character{
-    grid-template-columns: [first-col] 4fr [col-2] 1em [col-3] 2fr [last-col];
+    grid-template-columns: [first-col] 4fr [col-2] 1em [col-3] 2.5fr [last-col];
     grid-template-rows: [first-row] auto [last-row];
 }
 #sheet-page-skills
@@ -227,6 +299,9 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
     border: 1px dashed black;
     padding:1rem;
 }
+/* #sheet-page-character .sheet-sidebar > div .sheet-labeled-field{
+    display: block;
+} */
 #sheet-page-character > .sheet-abilities{
     grid-column-start: 1;
     grid-column-end: 3;
@@ -237,13 +312,39 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
 
 #sheet-page-character .sheet-char .sheet-char-name{
     display: block;
-    width:300px;
+    /* width:300px; */
     height: 3em;
     font-size: larger;
 }
 #sheet-page-character .sheet-char input{
     font-size: larger;
     padding-left:1em;
+    padding-right:1em;
+}
+#sheet-page-character .sheet-char .sheet-char-level{
+    display: block;
+    width:300px;
+    height: 3em;
+    font-size: larger;
+}
+#sheet-page-character .sheet-char .sheet-labeled-field input{
+    border-right-width: 1px;
+}
+#sheet-page-character .sheet-char div .sheet-labeled-field:nth-child(1) input{
+    border-left-width: 1px;
+}
+#sheet-page-character .sheet-char div:nth-child(1) .sheet-labeled-field input{
+    border-top-width: 1px;
+}
+
+#sheet-page-character .sheet-inventory{
+    position:relative;
+    border: 1px dotted black;
+    min-height: 300px;
+}
+
+.repeating_inventory ~ .repcontainer .itemcontrol{
+    z-index: 2;
 }
 
 .sheet-avatar{
@@ -260,6 +361,24 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
 .sheet-ability-item input{
     display: inline-block;
     width: 4em;
+}
+.sheet-check-item{
+    margin-bottom: 0.25em;
+}
+.sheet-check-item .sheet-labeled-field input{
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+}
+.sheet-check-item .sheet-labeled-field:nth-child(1) input{
+    border-left-width: 1px;
+}
+.sheet-check-item > label{
+    display: inline-block;
+    max-width:150px;
+    overflow-y: clip;
+    text-overflow: clip;
+    vertical-align: middle;
+    margin:0;
 }
 
 #sheet-page-skills{
@@ -280,109 +399,155 @@ input.sheet-tab[value="config"] ~ #sheet-page-config{
 }
 
 #sheet-page-skills .sheet-skill-item{
+    display: grid;
     position:relative;
-    margin: 1px 2.5em 0 4.5em;
-    border: 1px solid black;
+    margin: 0 2.5em 1em 2.5em;
+    border:2px solid black;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sheet-header sheet-description"
+      "sheet-center sheet-description"
+      "sheet-footer sheet-description";
+}
+#sheet-page-skills .sheet-skill-item  .sheet-description { 
+    border-left: 2px solid black;
+    grid-area: sheet-description; 
+}
+#sheet-page-skills .sheet-skill-item .sheet-header {  
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 0.5fr);
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . .";
+    grid-area: sheet-header;
+}
+#sheet-page-skills .sheet-skill-item .sheet-footer {  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". .";
+    grid-area: sheet-footer;
+}
+#sheet-page-skills .sheet-skill-item .sheet-center {  
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 0.5fr);
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . .";
+    grid-area: sheet-center;
 }
 
+#sheet-page-skills .sheet-skill-item .sheet-header input{
+    border-bottom-width: 3px;
+}
+#sheet-page-skills .sheet-skill-item .sheet-description .sheet-labeled-field{
+    height: 100%;
+}
+#sheet-page-skills .sheet-skill-item .sheet-description textarea{
+    resize: none;
+}
 #sheet-page-skills .sheet-skill-item > input{
     visibility: hidden;
     position:absolute;
     top:0;
     left:-2em;
 }
+#sheet-page-skills .sheet-skill-item .sheet-labeled-field{
+    border-right: 1px solid black;
+}
+#sheet-page-skills .sheet-skill-item .sheet-labeled-field:nth-child(1){
+    border-left: 1px solid black;
+}
+
 #sheet-page-skills .repcontainer:hover .sheet-skill-item > input{
     visibility: visible;
 }
 
 .sheet-skill-item .sheet-header{
-    border: 1px solid black;
+    border: 0px 1px solid black;
 }
 .sheet-skill-item .sheet-content{
-    border: 1px solid black;
+    border: 0px 1px solid black;
 }
 .sheet-block{
     display: block !important;
     width:100% !important;
 }
 
-.sheet-equipment-item{
+
+
+.sheet-equipment-item {  
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 0px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "fieldname fieldname fieldname fieldname fieldname fieldname fieldname fieldname fieldname"
+        "weight hit power dodge phys-def mag-def action move range"
+        "effect effect effect effect effect effect effect effect effect";
+    margin:2px 0px;
+    padding: 0.5em;
+    border: 1px solid black;
+    
+}
+
+.sheet-equipment-item > *{
     position:relative;
-    display: block;
-    margin: 1rem 0 0 40px;
 }
-.sheet-equipment-item label{
-    display: inline-block;
-    width: 100px;
+.sheet-equipment-item .sheet-fieldname { 
+    grid-area: fieldname; 
+
 }
-.sheet-equipment-item input{
-    display: inline-block;
-    border-radius: 0;
-    border-color: black;
-}
-.sheet-equipment-item .sheet-header{
-    position: relative;
-}
-/* .sheet-equipment-item .sheet-labeled-field{
-    width: 100px;
-} */
-.sheet-equipment-item .sheet-labeled-field > input[type="number"]{
+.sheet-equipment-item .sheet-weight { grid-area: weight; }
+.sheet-equipment-item .sheet-hit { grid-area: hit; }
+.sheet-equipment-item .sheet-power { grid-area: power; }
+.sheet-equipment-item .sheet-dodge { grid-area: dodge; }
+.sheet-equipment-item .sheet-phys-def { grid-area: phys-def; }
+.sheet-equipment-item .sheet-mag-def { grid-area: mag-def; }
+.sheet-equipment-item .sheet-action { grid-area: action; }
+.sheet-equipment-item .sheet-move { grid-area: move; }
+.sheet-equipment-item .sheet-range { grid-area: range; }
+.sheet-equipment-item .sheet-effect { grid-area: effect; }
+.sheet-equipment-item .sheet-effect textarea{height: 3em;}
+
+.sheet-equipment-item input[type="number"]{
     text-align: center;
 }
-.sheet-equipment-item .sheet-header .sheet-labeled-field.sheet-name{
-    width:300px;
-}
-.sheet-equipment-item .sheet-header .sheet-checkbox-button{
+  
+
+.sheet-equipment-item .sheet-equipment-name label,
+.sheet-equipment-item  span.sheet-equipment-field label{
     position: absolute;
-    top: 0em;
-    left: -2.5em;
-    height: 100%;
     display: inline-block;
+    top: 0px;
+    left: 0px;
+    width:90%;
+    opacity: 0.2;
+    font-size: smaller;
+    padding-left:0.5em;
     z-index: 1;
+    pointer-events: none;
 }
-.sheet-equipment-item > .sheet-content{
-    display: none;
+.sheet-equipment-item  span.sheet-equipment-field input{
+    width:calc(100% ) !important;
+    text-align: center;
 }
-.sheet-equipment-item > input[value="checked"] ~ .sheet-content{
+span.sheet-equipment-notes{
     display: block;
+    width:100%;
 }
 
-/* .sheet-check-item > .sheet-grid{
-    display: inline grid;
-    grid-template-areas: "ability hit attack evasion physical magic action move skill other" ;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.sheet-grid > span.sheet-labeled-field.sheet-check-ability{
-    grid-area: "ability";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-hitmod{
-    grid-area: "hit";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-attack{
-    grid-area: "attack";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-evasion{
-    grid-area: "evasion";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-physical{
-    grid-area: "physical";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-magic{
-    grid-area: "magic";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-action{
-    grid-area: "action";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-move{
-    grid-area: "move";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-skill{
-    grid-area: "skill";
-}
-.sheet-grid > span.sheet-labeled-field.sheet-check-other{
-    grid-area: "other";
-} */
 
 
 
